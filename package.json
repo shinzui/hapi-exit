@@ -1,0 +1,34 @@
+{
+  "name": "hapi-exit",
+  "version": "0.0.1",
+  "description": "Stop hapi gracefully on SIGINT and SIGTERM.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node node_modules/lab/bin/lab -a code -t 100 -L -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shinzui/hapi-exit.git"
+  },
+  "keywords": [
+    "hapi",
+    "hapijs",
+    "sigterm",
+    "sigint"
+  ],
+  "author": "Nadeem Bitar <nadeem@productatelier.com> (https://productatelier.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinzui/hapi-exit/issues"
+  },
+  "homepage": "https://github.com/shinzui/hapi-exit#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.1.1",
+    "code": "^1.5.0",
+    "lab": "^5.16.0"
+  },
+  "dependencies": {
+    "hapi": "^9.1.0",
+    "hoek": "^2.14.0"
+  }
+}
