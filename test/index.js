@@ -48,7 +48,6 @@ it('Intercepts SIGTERM', function(done) {
   var server = new Hapi.Server()
   server.connection()
 
-
   var stopCalled = false
 
   var stopCallback = function() {

@@ -1,7 +1,7 @@
 {
   "name": "hapi-exit",
   "version": "0.0.1",
-  "description": "Stop hapi gracefully on SIGINT and SIGTERM.",
+  "description": "Stop hapi gracefully on SIGINT and SIGTERM",
   "main": "lib/index.js",
   "scripts": {
     "test": "node node_modules/lab/bin/lab -a code -t 100 -L -v"
@@ -25,10 +25,10 @@
   "devDependencies": {
     "babel-eslint": "^4.1.1",
     "code": "^1.5.0",
-    "lab": "^5.16.0"
+    "lab": "^5.16.1"
   },
   "dependencies": {
-    "hapi": "^9.1.0",
-    "hoek": "^2.14.0"
+    "hapi": "^10.0.0",
+    "hoek": "^2.15.0"
   }
 }
