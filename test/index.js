@@ -1,18 +1,18 @@
-var Hapi = require('hapi')
-var Lab = require('lab')
-var Code = require('code')
-var Plugin = require('../lib/index')
+const Hapi = require('hapi')
+const Lab = require('lab')
+const Code = require('code')
+const Plugin = require('../lib/index')
 
-var lab = exports.lab = Lab.script()
-var expect = Code.expect
-var describe = lab.describe
-var it = lab.test
+const lab = exports.lab = Lab.script()
+const expect = Code.expect
+const describe = lab.describe
+const it = lab.test
 
-it('registers the plugin', function(done) {
+it('registers the plugin', (done) => {
 
-  var server = new Hapi.Server()
+  const server = new Hapi.Server()
 
-  server.register({ register: Plugin }, function(err) {
+  server.register({ register: Plugin }, (err) => {
     expect(err).to.not.exist()
     done()
   })
@@ -20,14 +20,14 @@ it('registers the plugin', function(done) {
 })
 
 
-it('Intercepts SIGINT', function(done) {
+it('Intercepts SIGINT', (done) => {
 
-  var server = new Hapi.Server()
+  let server = new Hapi.Server()
   server.connection()
 
-  var stopCalled = false
+  let stopCalled = false
 
-  var stopCallback = function() {
+  const stopCallback = () => {
     stopCalled = true
 
     if ( server )  {
@@ -36,21 +36,21 @@ it('Intercepts SIGINT', function(done) {
     }
   }
 
-  server.register({ register: Plugin, options: { timeout: 0, stopCallback: stopCallback } }, function(err) { })
+  server.register({ register: Plugin, options: { timeout: 0, stopCallback: stopCallback } }, (err) => { })
 
   server.start(function(err) {
     process.kill(process.pid, 'SIGINT')
   })
 })
 
-it('Intercepts SIGTERM', function(done) {
+it('Intercepts SIGTERM', (done) => {
 
-  var server = new Hapi.Server()
+  let server = new Hapi.Server()
   server.connection()
 
-  var stopCalled = false
+  let stopCalled = false
 
-  var stopCallback = function() {
+  const stopCallback = () => {
     stopCalled = true
 
     if ( server )  {
@@ -59,9 +59,9 @@ it('Intercepts SIGTERM', function(done) {
     }
   }
 
-  server.register({ register: Plugin, options: { timeout: 0, stopCallback: stopCallback } }, function(err) { })
+  server.register({ register: Plugin, options: { timeout: 0, stopCallback: stopCallback } }, (err) => { })
 
-  server.start(function(err) {
+  server.start((err) => {
     process.kill(process.pid, 'SIGTERM')
   })
 
